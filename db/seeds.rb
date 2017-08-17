@@ -9,18 +9,28 @@
 require 'json'
 require 'open-uri'
 
-url = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+puts 'Cleaning the pantry'
+Ingredient.destroy_all
 
+url = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 body = open(url).read
 
 JSON.parse(body)['drinks'].each do |something|
   Ingredient.create(name: something['strIngredient1'])
 end
 
-puts "Wee, all ingredients in the pantry!"
+puts "All ingredients have been stocked up!"
 
-# [0]['strIngredient1']
-
-# Ingredient.create(name: "lemon")
-# Ingredient.create(name: "ice")
-# Ingredient.create(name: "mint leaves")
+cocktails = [
+  {
+    name:         "Mint Julep"
+  },
+  {
+    name:         "Whiskey Sour"
+  },
+  {
+    name:         "Mojito"
+  }
+]
+Cocktail.create!(cocktails)
+puts 'Bar open for business!'
