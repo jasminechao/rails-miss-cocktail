@@ -9,6 +9,7 @@
         <div class="form-container">
           <%= simple_form_for [@cocktail] do |f| %>
           <h3><%= f.input :name %></h3>
+          <h3><%= f.input :photo, as: :attachinary %></h3>
           <%= f.submit "Add my cocktail", class: "btn-medium" %>
           <% end %>
         </div>

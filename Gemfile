@@ -5,6 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#Image upload
+gem 'cloudinary', '1.1.7'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+
+
 gem 'figaro'
 
 gem 'faker'
