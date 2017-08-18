@@ -5,14 +5,14 @@
   </div>
   <div class="container">
     <div class="row">
+      <% @cocktails.each do |cocktail| %>
       <div class="col-xs-12 col-sm-6 col-md-6">
-        <%= image_tag "cocktail.jpg" %>
+        <%= image_tag "" %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6">
-        <% @cocktails.each do |cocktail| %>
-        <p> <%= cocktail.name %> </p>
-        <% end %>
+        <p> <%= link_to cocktail.name , cocktail_path(cocktail) %> </p>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
@@ -20,3 +20,6 @@
 <div class="text-center">
   <%= link_to "Create new cocktail", new_cocktail_path, class: "btn-medium" %>
 </div>
+
+
+
