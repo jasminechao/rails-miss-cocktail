@@ -1,5 +1,19 @@
-<h1>Create your own cocktail</h1>
-<%= simple_form_for [@cocktail] do |f| %>
-  <%= f.input :name %>
-  <%= f.submit "Add my cocktail", class: "btn btn-primary" %>
-<% end %>
+<div class="content">
+  <h1 class= "text-center">Create your own cocktail </h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 large-img">
+        <img src="https://www.thedrinkblog.com/wp-content/uploads/2017/05/tdb-matcha-cocktail-vert.jpg" alt="cocktail">
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="form-container">
+          <%= simple_form_for [@cocktail] do |f| %>
+          <h3><%= f.input :name %></h3>
+          <%= f.submit "Add my cocktail", class: "btn-medium" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

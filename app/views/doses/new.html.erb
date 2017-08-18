@@ -1,6 +1,10 @@
-<h1>Doses#new</h1>
-<p><%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :ingredient, collection: Ingredient.all %>
-  <%= f.input :description %>
-  <%= f.submit "Add ingredient", class: "btn btn-primary" %>
-<% end %></p>
+<div class="content">
+  <h1 class= "text-center">Add ingredients to @cocktail.name </h1>
+  <div class="form-container text-center">
+    <p><%= simple_form_for [@cocktail, @dose] do |f| %>
+      <%= f.input :ingredient, collection: Ingredient.all %>
+      <%= f.input :description %>
+      <%= f.submit "Add ingredient", class: "btn-medium" %>
+      <% end %></p>
+    </div>
+  </div>
