@@ -1,17 +1,31 @@
+<h1> <%= @cocktail.name %> </h1>
 <div class="content">
   <br>
-  <div><%= link_to "Back to drinks", cocktails_path, class: "btn-medium" %></div>
   <br>
-  <h1> <%= @cocktail.name %> </h1>
-  <p> <% @cocktail.doses.each do |dose|%> </p>
-  <%= dose.description %>
-  <%= dose.ingredient.name %>
-  <% if @cocktail.photo? %>
-  <%= cl_image_tag @cocktail.photo.path, width: 200, height: 300, crop: :fill %>
-  <% end %>
-  <% end %>
-
-  <div><%= link_to "Add ingredients", new_cocktail_dose_path(@cocktail), class: "btn-medium" %></div>
-  <br>
-  <br>
+  <div class="container">
+   <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6 align-middle">
+    <p><strong>Ingredients:</strong></p>
+    <p> <% @cocktail.doses.each do |dose|%> </p>
+      <%= dose.description %>
+      <%= dose.ingredient.name %>
+      <% end %>
+      <br>
+      <br>
+      <br>
+      <div><%= link_to "Make some tweaks", new_cocktail_dose_path(@cocktail), class: "btn-medium add-margin" %></div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6">
+      <% if @cocktail.photo? %>
+      <%= cl_image_tag @cocktail.photo.path, width: 550, height: 600, crop: :fill %>
+      <% else %>
+      <%= simple_form_for [@cocktail] do |f| %>
+      <%= f.input :photo, as: :attachinary%>
+      <%= f.submit "Add my photo", class: "btn-medium" %>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
+</div>
+
