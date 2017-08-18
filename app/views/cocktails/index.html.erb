@@ -2,21 +2,18 @@
 <div class="container">
     <% @cocktails.each do |cocktail| %>
     <div class="row cocktail-row">
-    <div class="col-xs-12 col-sm-6 col-md-6 cocktail-info">
+    <div class="col-xs-12 col-sm-6 col-md-6 ">
       <% if cocktail.photo? %>
-      <%= cl_image_tag cocktail.photo.path, height: 600, crop: :fit, class: "cocktail-img" %>
+      <%= cl_image_tag cocktail.photo.path, width: 292.5, height: 400, crop: :crop, class: "cocktail-img" %>
       <% else %>
       <%= image_tag "Save-placeholder", class: "cocktail-img" %>
       <% end %>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-6">
-      <p> <%= link_to cocktail.name , cocktail_path(cocktail) %> </p>
+    <div class="col-xs-12 col-sm-3 col-md-3 cocktail-info">
+      <h3> <%=cocktail.name%> </h3>
+      <%= link_to "Read more", cocktail_path(cocktail), class: "btn-medium btn-top-margin-20px" %>
     </div>
   </div>
   <% end %>
-</div>
-
-<div class="text-center">
-  <%= link_to "Create new cocktail", new_cocktail_path, class: "btn-medium" %>
 </div>
 

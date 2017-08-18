@@ -1,13 +1,25 @@
 <div class="content">
   <h1 class= "text-center">Add ingredients to <%= @cocktail.name %> </h1>
-  <div class="form-container">
-    <p><%= simple_form_for [@cocktail, @dose] do |f| %>
-      <%= f.association :ingredient %>
-        <% if @dose.errors.present? %>
-        <% @dose.errors%>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="form-container">
+          <p><%= simple_form_for [@cocktail, @dose] do |f| %>
+            <%= f.association :ingredient %>
+            <% if @dose.errors.present? %>
+            <% @dose.errors%>
+            <% end %>
+            <%= f.input :description, placeholder: 'ex: 1 jigger, 2 shots, 1 pony, 1 snit' %>
+            <%= f.submit "Add ingredient", class: "btn-medium" %>
+            <% end %></p>
+          </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 top-padding">
+        <%= simple_form_for [@cocktail] do |f| %>
+        <%= f.input :photo, as: :attachinary%>
+        <%= f.submit "Upload new photo", class: "btn-medium" %>
         <% end %>
-      <%= f.input :description, placeholder: 'ex: 1 jigger, 2 shots, 1 pony, 1 snit' %>
-      <%= f.submit "Add ingredient", class: "btn-medium" %>
-      <% end %></p>
+      </div>
     </div>
   </div>
+</div>

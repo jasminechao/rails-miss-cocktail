@@ -3,15 +3,19 @@
 }
 
 .cocktail-info {
-  display: block;
-  position: absolute;
+  text-align: center;
 }
 
 .cocktail-row {
   max-height: 600px;
+  margin: 40px 0;
+  text-align: center;
 }
 
 .cocktail-img {
-  max-height: 600px;
+  height: 400px;
 }
 
+.top-padding {
+  padding-top: 40px;
+}
