@@ -1,25 +1,22 @@
 <%= render 'layouts/banner' %>
-<div class="index-container">
-  <div class="text-center">
-    <h2>Cocktails</h2>
-  </div>
-  <div class="container">
-    <div class="row">
-      <% @cocktails.each do |cocktail| %>
-      <div class="col-xs-12 col-sm-6 col-md-6">
-        <%= image_tag "" %>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-6">
-        <p> <%= link_to cocktail.name , cocktail_path(cocktail) %> </p>
-      </div>
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+    <div class="col-xs-12 col-sm-6 col-md-6">
+      <% if cocktail.photo? %>
+      <%= cl_image_tag cocktail.photo.path, width: 550, height: 600, crop: :fill, class: "lrg-round-img" %>
+      <% else %>
+      <%= image_tag("Save-placeholder") %>
       <% end %>
     </div>
+    <div class="col-xs-12 col-sm-6 col-md-6">
+      <p> <%= link_to cocktail.name , cocktail_path(cocktail) %> </p>
+    </div>
+    <% end %>
   </div>
 </div>
 
 <div class="text-center">
   <%= link_to "Create new cocktail", new_cocktail_path, class: "btn-medium" %>
 </div>
-
-
 

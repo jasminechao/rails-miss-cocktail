@@ -10,14 +10,11 @@
       <%= dose.description %>
       <%= dose.ingredient.name %>
       <% end %>
-      <br>
-      <br>
-      <br>
-      <div><%= link_to "Make some tweaks", new_cocktail_dose_path(@cocktail), class: "btn-medium add-margin" %></div>
+      <div class="btn-top-margin-20px"><%= link_to "Make some tweaks", new_cocktail_dose_path(@cocktail), class: "btn-medium" %></div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6">
       <% if @cocktail.photo? %>
-      <%= cl_image_tag @cocktail.photo.path, width: 550, height: 600, crop: :fill %>
+      <%= cl_image_tag @cocktail.photo.path, width: 550, height: 600, crop: :fill, class: "lrg-round-img" %>
       <% else %>
       <%= simple_form_for [@cocktail] do |f| %>
       <%= f.input :photo, as: :attachinary%>
