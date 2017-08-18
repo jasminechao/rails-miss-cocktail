@@ -6,7 +6,7 @@
       <% if cocktail.photo? %>
       <%= cl_image_tag cocktail.photo.path, width: 292.5, height: 400, crop: :crop, class: "cocktail-img" %>
       <% else %>
-      <%= image_tag "Save-placeholder", class: "cocktail-img" %>
+      <%= image_tag "placeholder.jpg", class: "cocktail-img" %>
       <% end %>
     </div>
     <div class="col-xs-12 col-sm-3 col-md-3 cocktail-info">
